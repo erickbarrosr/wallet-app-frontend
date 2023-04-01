@@ -5,6 +5,6 @@ const onClickLogin = () => {
     return;
   }
 
-  localStorage.setItem("@WalletApp:userEmail", email);
+  localStorage.setItem("walletApp:userEmail", email);
   window.open("./src/pages/home/index.html", "_self");
 };

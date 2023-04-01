@@ -1,4 +1,4 @@
 window.onload = () => {
-  const email = localStorage.getItem("@WalletApp:userEmail");
+  const email = localStorage.getItem("walletApp:userEmail", email);
   console.log(email);
 };
