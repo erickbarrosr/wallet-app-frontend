@@ -96,6 +96,11 @@ th {
   text-align: left;
   color: #7c7c7c;
 }
+
+tr {
+  height: 32px;
+}
+
 th.right {
   text-align: right;
 }
@@ -111,7 +116,6 @@ td.right {
 td.center {
   text-align: center;
 }
-
 .modal-background {
   display: none;
   flex-direction: column;
@@ -125,7 +129,6 @@ td.center {
   height: 100vh;
   background-color: rgba(1, 4, 0, 0.2);
 }
-
 .modal-content {
   height: 100%;
   width: 480px;
@@ -133,7 +136,6 @@ td.center {
   padding: 24px;
   box-sizing: border-box;
 }
-
 .modal-content-header {
   display: flex;
   flex-direction: row;

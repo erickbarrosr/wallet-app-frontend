@@ -2,9 +2,40 @@ const renderFinancesList = (data) => {
   const table = document.getElementById("finances-table");
   table.innerHTML = "";
 
+  const tableHeader = document.createElement("tr");
+
+  const titleText = document.createTextNode("Título");
+  const titleElement = document.createElement("th");
+  titleElement.appendChild(titleText);
+  tableHeader.appendChild(titleElement);
+
+  const categoryText = document.createTextNode("Categoria");
+  const categoryElement = document.createElement("th");
+  categoryElement.appendChild(categoryText);
+  tableHeader.appendChild(categoryElement);
+
+  const dateText = document.createTextNode("Data");
+  const dateElement = document.createElement("th");
+  dateElement.appendChild(dateText);
+  tableHeader.appendChild(dateElement);
+
+  const valueText = document.createTextNode("Valor");
+  const valueElement = document.createElement("th");
+  valueElement.className = "center";
+  valueElement.appendChild(valueText);
+  tableHeader.appendChild(valueElement);
+
+  const actionText = document.createTextNode("Ação");
+  const actionElement = document.createElement("th");
+  actionElement.className = "right";
+  actionElement.appendChild(actionText);
+  tableHeader.appendChild(actionElement);
+
+  table.appendChild(tableHeader);
+
   data.map((item) => {
     const tableRow = document.createElement("tr");
-    tableRow.className = "mt smaller";
+
     // title
     const titleTd = document.createElement("td");
     const titleText = document.createTextNode(item.title);
@@ -52,32 +83,26 @@ const renderFinanceElements = (data) => {
     .filter((item) => Number(item.value) < 0)
     .reduce((acc, item) => acc + Number(item.value), 0);
   const totalValue = revenues + expenses;
-
   // render total items
   const financeCard1 = document.getElementById("finance-card-1");
   financeCard1.innerHTML = "";
-
   const totalSubtext = document.createTextNode("Total de lançamentos");
   const totalSubTextElement = document.createElement("h3");
   totalSubTextElement.appendChild(totalSubtext);
   financeCard1.appendChild(totalSubTextElement);
-
   const totalText = document.createTextNode(totalItems);
   const totalElement = document.createElement("h1");
   totalElement.id = "total-element";
   totalElement.className = "mt smaller";
   totalElement.appendChild(totalText);
   financeCard1.appendChild(totalElement);
-
   // render revenue
   const financeCard2 = document.getElementById("finance-card-2");
   financeCard2.innerHTML = "";
-
   const revenueSubtext = document.createTextNode("Receitas");
   const revenueSubtextElement = document.createElement("h3");
   revenueSubtextElement.appendChild(revenueSubtext);
   financeCard2.appendChild(revenueSubtextElement);
-
   const revenueText = document.createTextNode(
     new Intl.NumberFormat("pt-BR", {
       style: "currency",
@@ -89,16 +114,13 @@ const renderFinanceElements = (data) => {
   revenueTextElement.className = "mt smaller";
   revenueTextElement.appendChild(revenueText);
   financeCard2.appendChild(revenueTextElement);
-
   // render expenses
   const financeCard3 = document.getElementById("finance-card-3");
   financeCard3.innerHTML = "";
-
   const expensesSubtext = document.createTextNode("Despesas");
   const expensesSubtextElement = document.createElement("h3");
   expensesSubtextElement.appendChild(expensesSubtext);
   financeCard3.appendChild(expensesSubtextElement);
-
   const expensesText = document.createTextNode(
     new Intl.NumberFormat("pt-BR", {
       style: "currency",
@@ -110,16 +132,13 @@ const renderFinanceElements = (data) => {
   expensesTextElement.className = "mt smaller";
   expensesTextElement.appendChild(expensesText);
   financeCard3.appendChild(expensesTextElement);
-
   // render balance
   const financeCard4 = document.getElementById("finance-card-4");
   financeCard4.innerHTML = "";
-
   const balanceSubtext = document.createTextNode("Balanço");
   const balanceSubtextElement = document.createElement("h3");
   balanceSubtextElement.appendChild(balanceSubtext);
   financeCard4.appendChild(balanceSubtextElement);
-
   const balanceText = document.createTextNode(
     new Intl.NumberFormat("pt-BR", {
       style: "currency",
@@ -175,7 +194,6 @@ const onLoadUserInfo = () => {
   nameElement.appendChild(nameText);
   navbarUserAvatar.appendChild(nameElement);
 };
-
 const onLoadCategories = async () => {
   try {
     const categoriesSelect = document.getElementById("input-category");
@@ -195,21 +213,17 @@ const onLoadCategories = async () => {
     alert("Error ao carregar categorias");
   }
 };
-
 const onOpenModal = () => {
   const modal = document.getElementById("modal");
   modal.style.display = "flex";
 };
-
 const onCloseModal = () => {
   const modal = document.getElementById("modal");
   modal.style.display = "none";
 };
-
 const onCallAddFinance = async (data) => {
   try {
     const email = localStorage.getItem("@WalletApp:userEmail");
-
     const response = await fetch(
       "https://mp-wallet-app-api.herokuapp.com/finances",
       {
@@ -224,14 +238,12 @@ const onCallAddFinance = async (data) => {
         body: JSON.stringify(data),
       }
     );
-
     const user = await response.json();
     return user;
   } catch (error) {
     return { error };
   }
 };
-
 const onCreateFinanceRelease = async (target) => {
   try {
     const title = target[0].value;
@@ -244,7 +256,6 @@ const onCreateFinanceRelease = async (target) => {
       date,
       category_id: category,
     });
-
     if (result.error) {
       alert("Error ao adicionar novo dado financeiro.");
       return;
@@ -255,12 +266,10 @@ const onCreateFinanceRelease = async (target) => {
     alert("Error ao adicionar novo dado financeiro.");
   }
 };
-
 window.onload = () => {
   onLoadUserInfo();
   onLoadFinancesData();
   onLoadCategories();
-
   const form = document.getElementById("form-finance-release");
   form.onsubmit = (event) => {
     event.preventDefault();
