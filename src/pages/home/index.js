@@ -1,7 +1,11 @@
+const onLogout = () => {
+  localStorage.clear();
+  window.open("../../../index.html", "_self");
+};
+
 const onDeleteItem = async (id) => {
   try {
     const email = localStorage.getItem("@WalletApp:userEmail");
-
     await fetch(`https://mp-wallet-app-api.herokuapp.com/finances/${id}`, {
       method: "DELETE",
       mode: "cors",
@@ -16,7 +20,6 @@ const onDeleteItem = async (id) => {
     alert("Error ao deletar o item.");
   }
 };
-
 const renderFinancesList = (data) => {
   const table = document.getElementById("finances-table");
   table.innerHTML = "";
@@ -74,7 +77,6 @@ const renderFinancesList = (data) => {
     );
     valueTd.appendChild(valueText);
     tableRow.appendChild(valueTd);
-
     // delete
     const deleteTd = document.createElement("td");
     deleteTd.style.cursor = "pointer";
@@ -165,12 +167,13 @@ const renderFinanceElements = (data) => {
   balanceTextElement.appendChild(balanceText);
   financeCard4.appendChild(balanceTextElement);
 };
+
 const onLoadFinancesData = async () => {
   try {
-    const date = "2022-12-15";
+    const dateInputValue = document.getElementById("selected-date").value;
     const email = localStorage.getItem("@WalletApp:userEmail");
     const result = await fetch(
-      `https://mp-wallet-app-api.herokuapp.com/finances?date=${date}`,
+      `https://mp-wallet-app-api.herokuapp.com/finances?date=${dateInputValue}`,
       {
         method: "GET",
         headers: {
@@ -196,8 +199,11 @@ const onLoadUserInfo = () => {
   const emailText = document.createTextNode(email);
   emailElement.appendChild(emailText);
   navbarUserInfo.appendChild(emailElement);
+
   // add logout link
   const logoutElement = document.createElement("a");
+  logoutElement.onclick = () => onLogout();
+  logoutElement.style.cursor = "pointer;";
   const logoutText = document.createTextNode("sair");
   logoutElement.appendChild(logoutText);
   navbarUserInfo.appendChild(logoutElement);
@@ -279,7 +285,18 @@ const onCreateFinanceRelease = async (target) => {
     alert("Error ao adicionar novo dado financeiro.");
   }
 };
+
+const setInitialDate = () => {
+  const dateInput = document.getElementById("selected-date");
+  const nowDate = new Date().toISOString().split("T")[0];
+  dateInput.value = nowDate;
+  dateInput.addEventListener("change", () => {
+    onLoadFinancesData();
+  });
+};
+
 window.onload = () => {
+  setInitialDate();
   onLoadUserInfo();
   onLoadFinancesData();
   onLoadCategories();
