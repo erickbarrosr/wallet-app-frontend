@@ -1,0 +1,155 @@
+.home-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100vw;
+  height: auto;
+  min-height: 100vh;
+  background-color: #f4f4f9;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  width: 100vw;
+  background-color: #ffffff;
+  padding: 24px 122px;
+  box-sizing: border-box;
+}
+
+.logo-navbar {
+  height: 24px;
+  width: auto;
+}
+
+.navbar-calendar-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 260px;
+}
+
+.navbar-user-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 260px;
+  height: 100%;
+}
+
+.navbar-user-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 48px;
+  border-radius: 24px;
+  background-color: #e4fde1;
+}
+
+.navbar-user-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.logout-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: #5936cd;
+  cursor: pointer;
+}
+
+.finance-card-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px 122px;
+  box-sizing: border-box;
+}
+
+.finance-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 140px;
+  border-radius: 24px;
+  background-color: #ffffff;
+}
+
+.table-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px 122px;
+  box-sizing: border-box;
+}
+
+.table-content-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  border-radius: 24px;
+  height: 592px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.table-content-header {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  color: #7c7c7c;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px;
+}
+
+td {
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #010400;
+}
+
+tr {
+  border-bottom: 1px solid #f4f4f9;
+}
+
+.input-calendar {
+  width: 100%;
+  height: 48px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #010400;
+  border-radius: 8px;
+  border: 2px solid #06bee1;
+  background-color: #ffffff;
+}

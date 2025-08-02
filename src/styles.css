@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Noto Sans", sans-serif;
+  color: #010400;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bolder;
+  margin: 0px;
+  padding: 0px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0px;
+  padding: 0px;
+  color: #7c7c7c;
+}
+
+p {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0px;
+  padding: 0px;
+  color: #7c7c7c;
+}
+
+label {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+a {
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+button {
+  background-color: #5936cd;
+  height: 56px;
+  width: 432px;
+  border-radius: 12px;
+  color: #f4f4f9;
+  font-weight: bold;
+  font-size: 16px;
+  border-color: #5936cd;
+  border-style: solid;
+  cursor: pointer;
+}
+
+button.small {
+  border-width: 2px;
+  border-color: #5936cd;
+  border-style: solid;
+  background-color: #ffffff;
+  color: #010400;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 8px;
+  height: 36px;
+  width: 90px;
+}
+
+input {
+  width: 100%;
+  height: 48px;
+  border-color: #06bee1;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 8px;
+  background-color: transparent;
+  font-weight: 400;
+  color: #010400;
+  font-size: 16px;
+  padding: 6px;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+}
+
+select {
+  width: 100%;
+  height: 48px;
+  border-color: #06bee1;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 8px;
+  background-color: transparent;
+  font-weight: 400;
+  color: #010400;
+  font-size: 16px;
+  padding: 6px;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+}
+
+.mt {
+  margin-top: 16px;
+}
+
+.mt.larger {
+  margin-top: 32px;
+}
+
+.mt.small {
+  margin-top: 12px;
+}
+
+.mt.smaller {
+  margin-top: 6px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.logo {
+  height: 72px;
+  width: auto;
+}
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #5936cd;
+}
+
+.auth-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 480px;
+  height: auto;
+  background-color: #f4f4f9;
+  border-radius: 24px;
+}
+
+.auth-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.income {
+  color: #40b484;
+}
+
+.expense {
+  color: #ed3e4e;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.modal-background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(1, 4, 0, 0.2);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 480px;
+  height: auto;
+  background-color: #f4f4f9;
+  border-radius: 24px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.modal-content-header {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,110 @@
+<div class="home-content-container">
+  <div class="navbar">
+    <img
+      src="assets/img/logo.png"
+      class="logo-navbar"
+      alt="Logo Wallet App"
+    />
+    <div class="navbar-calendar-container">
+      <input class="input-calendar" [(ngModel)]="selectedDate" type="date" (change)="onLoadFinancesData()" />
+    </div>
+    <div class="navbar-user-container">
+      <div class="navbar-user-avatar">{{ userInitials }}</div>
+      <div class="navbar-user-name">{{ userName }}</div>
+      <a (click)="onLogout()" class="logout-link">Sair</a>
+    </div>
+  </div>
+  <div class="finance-card-container">
+    <div class="finance-card">
+      <h3>Entradas</h3>
+      <h2 class="income">{{ totalIncome | currency:'BRL' }}</h2>
+    </div>
+    <div class="finance-card">
+      <h3>Saídas</h3>
+      <h2 class="expense">{{ totalExpense | currency:'BRL' }}</h2>
+    </div>
+    <div class="finance-card">
+      <h3>Balanço</h3>
+      <h2 [ngClass]="{'income': totalBalance >= 0, 'expense': totalBalance < 0}">{{ totalBalance | currency:'BRL' }}</h2>
+    </div>
+  </div>
+  <div class="table-container">
+    <div class="table-content-container">
+      <div class="table-content-header">
+        <h2>Últimos lançamentos</h2>
+        <button (click)="onOpenModal()" class="small">Adicionar</button>
+      </div>
+      <table>
+        <tr>
+          <th>Título</th>
+          <th>Categoria</th>
+          <th>Data</th>
+          <th class="center">Valor</th>
+          <th class="right">Ação</th>
+        </tr>
+        <tr *ngFor="let item of finances">
+          <td>{{ item.title }}</td>
+          <td>{{ item.category }}</td>
+          <td>{{ item.date | date:'dd/MM/yyyy' }}</td>
+          <td [ngClass]="{'income': item.value > 0, 'expense': item.value < 0}" class="center">
+            {{ item.value | currency:'BRL' }}
+          </td>
+          <td class="right">
+            <button (click)="onDeleteItem(item.id)" class="small">Deletar</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div *ngIf="isModalOpen" class="modal-background">
+  <div class="modal-content">
+    <div class="modal-content-header">
+      <h3>Adicionar lançamento</h3>
+      <button (click)="onCloseModal()" class="small">Fechar</button>
+    </div>
+    <form (ngSubmit)="onCreateFinanceRelease()" class="mt">
+      <label class="mt" for="input-title">Título:</label>
+      <input
+        class="mt smaller"
+        type="text"
+        id="input-title"
+        name="input-title"
+        [(ngModel)]="formData.title"
+        required
+      />
+      <label class="mt" for="input-value">Valor:</label>
+      <input
+        class="mt smaller"
+        type="number"
+        id="input-value"
+        name="input-value"
+        [(ngModel)]="formData.value"
+        required
+      />
+      <label class="mt" for="input-date">Data:</label>
+      <input
+        class="mt smaller"
+        type="date"
+        id="input-date"
+        name="input-date"
+        [(ngModel)]="formData.date"
+        required
+      />
+      <label class="mt" for="input-category">Categoria:</label>
+      <select
+        class="mt smaller"
+        id="input-category"
+        name="input-category"
+        [(ngModel)]="formData.category"
+        required
+      >
+        <option value="">Selecione uma categoria</option>
+        <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+      </select>
+      <button type="submit" class="mt full-width">Adicionar</button>
+    </form>
+  </div>
+</div>

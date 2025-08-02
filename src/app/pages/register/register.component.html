@@ -1,0 +1,36 @@
+<div class="auth-container">
+  <div class="auth-content">
+    <div class="auth-content-container">
+      <img src="assets/img/logo.png" class="logo" alt="Logo Wallet App" />
+      <h3 class="full-width mt larger text-left">Novo cadastro!</h3>
+      <p class="mt small">
+        Insira seu nome e seu e-mail para ter acesso ao Wallet app e
+        gerenciar suas finanças.
+      </p>
+      <form (ngSubmit)="onRegister()" class="mt">
+        <label for="input-name">Nome:</label>
+        <input
+          class="mt smaller"
+          type="text"
+          id="input-name"
+          name="input-name"
+          placeholder="Insira seu nome"
+          [(ngModel)]="name"
+          required
+        />
+        <label class="mt" for="input-email">E-mail:</label>
+        <input
+          class="mt smaller"
+          type="text"
+          id="input-email"
+          name="input-email"
+          placeholder="email@exemplo.com"
+          [(ngModel)]="email"
+          required
+        />
+        <button type="submit" class="mt full-width">Cadastrar</button>
+      </form>
+      <a routerLink="/" class="mt larger">Já possui uma conta ? Faça login aqui.</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<section>
+  <div class="auth-container">
+    <div class="auth-content">
+      <div class="auth-content-container">
+        <img src="assets/img/logo.png" class="logo" alt="Logo Wallet App" />
+        <h3 class="full-width mt larger text-left">Bem vindo!</h3>
+        <p class="mt small">
+          Digite seu e-mail abaixo para ter acesso à aplicação financeira
+          Wallet, e ter um melhor controle dos seus gastos mensais.
+        </p>
+        <label class="mt" for="input-email">E-mail</label>
+        <input class="mt smaller" type="text" id="input-email" name="input-email" placeholder="email@exemplo.com" [(ngModel)]="email" />
+        <button (click)="onClickLogin()" class="mt full-width">
+          Acessar
+        </button>
+        <a routerLink="/register" class="mt larger">Não tem conta ? Faça seu cadastro aqui.</a>
+      </div>
+    </div>
+  </div>
+</section>
